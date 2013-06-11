@@ -36,19 +36,19 @@ json.sort{it.broadcastTime}.each {
 	
 	println "MediaURL $mediaUrl";
 
-//	out = new BufferedOutputStream(new FileOutputStream(new File(dir, "${filename}.jpg")));
-//	out << new URL("http://www.dr.dk/NU/api/videos/${it.id}/images/400x300.jpg").openStream();
-//	out.close();
-//	
-//	def file = new File(dir, filename + ".mp4")
-//	println "Downloading ${it.title} to $file";
-//	if (!file.exists()) {
-//		out = new BufferedOutputStream(new FileOutputStream(file))
-//		out << new URL(mediaUrl).openStream()
-//		out.close()
-//		println "Done"
-//		sleep 1000
-//	}
+	out = new BufferedOutputStream(new FileOutputStream(new File(dir, "${filename}.jpg")));
+	out << new URL("http://www.dr.dk/NU/api/videos/${it.id}/images/400x300.jpg").openStream();
+	out.close();
+	
+	def file = new File(dir, filename + ".mp4")
+	println "Downloading ${it.title} to $file";
+	if (!file.exists()) {
+		out = new BufferedOutputStream(new FileOutputStream(file))
+		out << new URL(mediaUrl).openStream()
+		out.close()
+		println "Done"
+		sleep 1000
+	}
 }
 
 println "Bye. No more to do"
